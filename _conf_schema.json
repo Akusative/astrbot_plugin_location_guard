@@ -1,0 +1,100 @@
+{
+  "home_lat": {
+    "type": "float",
+    "description": "家的纬度坐标",
+    "default": 0.0,
+    "hint": "填写家的纬度坐标"
+  },
+  "home_lng": {
+    "type": "float",
+    "description": "家的经度坐标",
+    "default": 0.0,
+    "hint": "填写家的经度坐标"
+  },
+  "alert_distance": {
+    "type": "int",
+    "description": "离家超过多少米触发查岗",
+    "default": 500,
+    "hint": "触发距离，单位米"
+  },
+  "http_port": {
+    "type": "int",
+    "description": "HTTP监听端口",
+    "default": 8090,
+    "hint": "接收手机GPS坐标的端口"
+  },
+  "notify_qq": {
+    "type": "string",
+    "description": "接收查岗的QQ号",
+    "default": "",
+    "hint": "离家时通知谁的QQ号"
+  },
+  "bot_qq": {
+    "type": "string",
+    "description": "机器人QQ号",
+    "default": "",
+    "hint": "用哪个Bot发送查岗消息"
+  },
+  "bot_platform": {
+    "type": "string",
+    "description": "AstrBot中配置的机器人平台名称，可通过/get_umo指令查看冒号前的部分",
+    "default": "default",
+    "hint": "填写你在AstrBot中设置的机器人名称，如default、纸苹果01等"
+  },
+  "onebot_url": {
+    "type": "string",
+    "description": "OneBot接口地址",
+    "default": "http://127.0.0.1:3000",
+    "hint": "NapCat的HTTP API地址"
+  },
+  "sentinel_provider": {
+    "type": "string",
+    "description": "哨兵模型，用于判断用户是否报备过出门",
+    "default": "",
+    "hint": "选择一个轻量模型，留空则使用默认模型",
+    "_special": "select_provider"
+  },
+  "guard_provider": {
+    "type": "string",
+    "description": "查岗消息生成使用的模型提供商",
+    "default": "",
+    "hint": "选择查岗消息生成用的模型，留空则使用默认模型",
+    "_special": "select_provider"
+  },
+  "alert_prompt": {
+    "type": "text",
+    "description": "未报备离家提示词",
+    "default": "用户刚刚离开了家且没有提前告诉你。离家约{{distance}}米。现在{{current_time}}，天气{{weather}}，{{temperature}}度。以有点不满但更多是担心的语气询问用户去哪了，提醒注意安全。不要用markdown格式，像发微信一样自然，2到4句话"
+  },
+  "safe_travel_prompt": {
+    "type": "text",
+    "description": "已报备离家提示词",
+    "default": "用户出门了且之前提过要出门。离家约{{distance}}米。现在{{current_time}}，天气{{weather}}，{{temperature}}度。温柔提醒注意安全，到了报平安。不要用markdown格式，像发微信一样自然，2到4句话"
+  },
+  "home_prompt": {
+    "type": "text",
+    "description": "到家提示词",
+    "default": "用户刚到家了。现在{{current_time}}，天气{{weather}}，{{temperature}}度。开心欢迎回家，问问顺不顺利。不要用markdown格式，像发微信一样自然，2到4句话"
+  },
+  "enable_segment": {
+    "type": "bool",
+    "description": "启用分段回复",
+    "default": false
+  },
+  "segment_regex": {
+    "type": "string",
+    "description": "分段正则表达式",
+    "default": "([^？！。\\n]*?(?:[\"（(\\[【《][^\"）)\\]】》\\n]*[\"）)\\]】》][^？！。\\n]*?)*?(?:[？！。]+[\"\"）)\\]】》]*|$))"
+  },
+  "context_rounds": {
+    "type": "int",
+    "description": "生成消息时携带的最近对话轮数，0则不携带",
+    "default": 6
+  },
+  "device_filter": {
+    "default": "all",
+    "description": "接受哪个设备的位置上报",
+    "hint": "all=全部接受, android=只接受安卓, ios=只接受iOS",
+    "type": "string"
+  }
+}
