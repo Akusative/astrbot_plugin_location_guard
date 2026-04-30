@@ -1,6 +1,6 @@
 name: astrbot_plugin_location_guard
 desc: 位置守护插件 - GPS定位自动查岗，支持iOS/Android双平台，AI大模型生成自然语言通知
-version: 3.0.0
+version: 3.0.1
 author: 沈菀
 repo: "https://github.com/Akusative/astrbot_plugin_location_guard"
 star_cls_name: LocationGuard
