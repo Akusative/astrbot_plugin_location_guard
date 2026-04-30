@@ -31,7 +31,7 @@ class LocationHandler(BaseHTTPRequestHandler):
     plugin = None
 
     def do_POST(self):
-        if self.path == '/location':
+        if self.path in ('/location', '/api/location/report'):
             content_length = int(
                 self.headers['Content-Length']
             )
