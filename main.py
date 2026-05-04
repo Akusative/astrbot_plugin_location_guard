@@ -50,7 +50,7 @@ logger = logging.getLogger("location_guard")
 
 @register(
     "location_guard", "wanwan",
-    "location guard plugin", "3.0.0",
+    "location guard plugin", "3.0.2",
     "GPS location guard with Android/iOS "
     "support and AI-powered notifications"
 )

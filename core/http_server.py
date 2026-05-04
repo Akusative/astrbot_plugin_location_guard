@@ -31,6 +31,9 @@ class LocationHandler(BaseHTTPRequestHandler):
     plugin = None
 
     def do_POST(self):
+        logger.info(
+            "收到POST请求, 路径: %s", self.path
+        )
         if self.path in ('/location', '/api/location/report'):
             content_length = int(
                 self.headers['Content-Length']
@@ -63,7 +66,7 @@ class LocationHandler(BaseHTTPRequestHandler):
                 if (dev_filter
                         and dev_filter != 'all'
                         and device
-                        and device != dev_filter):
+                        and device.lower() != dev_filter.lower()):
                     resp = {
                         "status": "filtered",
                         "device": device,
